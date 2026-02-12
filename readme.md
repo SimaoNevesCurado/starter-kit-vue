@@ -37,7 +37,7 @@ This project is based on Laravel + Inertia + Vue and adds a quality-first workfl
 Requirements:
 
 - PHP 8.4+
-- Node.js 22+
+- Bun
 - Composer
 - A database supported by Laravel
 - A PHP coverage driver (e.g. Xdebug) if you run the full coverage suite
@@ -59,8 +59,8 @@ composer dev
 ## Optional Browser Testing Setup
 
 ```bash
-npm install playwright
-npx playwright install
+bun add playwright
+bunx playwright install
 ```
 
 ## Quality and Testing
@@ -108,5 +108,3 @@ This starter kit supports multiple AI environments without forcing local install
 ## License
 
 MIT
-# starter-kit-vue
-# starter-kit-vue
