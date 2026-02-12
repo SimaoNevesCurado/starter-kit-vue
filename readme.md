@@ -1,101 +1,112 @@
-- Inertia & Vue (this project) version: **[github.com/nunomaduro/laravel-starter-kit-inertia-vue](https://github.com/nunomaduro/laravel-starter-kit-inertia-vue)**
-- Inertia & React version: **[github.com/nunomaduro/laravel-starter-kit-inertia-react](https://github.com/nunomaduro/laravel-starter-kit-inertia-react)**
-- Blade version: **[github.com/nunomaduro/laravel-starter-kit](https://github.com/nunomaduro/laravel-starter-kit)**
+# Simao Curado Laravel Starter Kit (Inertia + Vue)
 
-<p align="center">
-    <a href="https://youtu.be/VhzP0XWGTC4" target="_blank">
-        <img src="https://github.com/nunomaduro/laravel-starter-kit/blob/main/art/banner.png" alt="Overview Laravel Starter Kit" style="width:70%;">
-    </a>
-</p>
+[![CI](https://github.com/simaonevescurado/starter-kit-vue/actions/workflows/tests.yml/badge.svg)](https://github.com/simaonevescurado/starter-kit-vue/actions/workflows/tests.yml)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/simaocurado/starter-kit-vue.svg)](https://packagist.org/packages/simaocurado/starter-kit-vue)
+[![Total Downloads](https://img.shields.io/packagist/dt/simaocurado/starter-kit-vue.svg)](https://packagist.org/packages/simaocurado/starter-kit-vue)
+[![License](https://img.shields.io/packagist/l/simaocurado/starter-kit-vue.svg)](https://packagist.org/packages/simaocurado/starter-kit-vue)
 
-<p>
-    <a href="https://github.com/nunomaduro/laravel-starter-kit-inertia-vue/actions"><img src="https://github.com/nunomaduro/laravel-starter-kit-inertia-vue/actions/workflows/tests.yml/badge.svg" alt="Build Status"></a>
-    <a href="https://packagist.org/packages/nunomaduro/laravel-starter-kit-inertia-vue"><img src="https://img.shields.io/packagist/dt/nunomaduro/laravel-starter-kit-inertia-vue" alt="Total Downloads"></a>
-    <a href="https://packagist.org/packages/nunomaduro/laravel-starter-kit-inertia-vue"><img src="https://img.shields.io/packagist/v/nunomaduro/laravel-starter-kit-inertia-vue" alt="Latest Stable Version"></a>
-    <a href="https://packagist.org/packages/nunomaduro/laravel-starter-kit-inertia-vue"><img src="https://img.shields.io/packagist/l/nunomaduro/laravel-starter-kit-inertia-vue" alt="License"></a>
-</p>
+An opinionated Laravel 12 starter kit for developers who want strict, consistent, and production-focused defaults out of the box.
 
-**Laravel Starter Kit (Inertia & Vue)** is an ultra-strict, type-safe [Laravel](https://laravel.com) skeleton engineered for developers who refuse to compromise on code quality. This opinionated starter kit enforces rigorous development standards through meticulous tooling configuration and architectural decisions that prioritize type safety, immutability, and fail-fast principles.
+This project is based on Laravel + Inertia + Vue and adds a quality-first workflow with static analysis, automated refactoring, formatting, and strong testing requirements.
 
-## Why This Starter Kit?
+## Why This Starter Kit
 
-Modern PHP has evolved into a mature, type-safe language, yet many Laravel projects still operate with loose conventions and optional typing. This starter kit changes that paradigm by enforcing:
+- Actions-oriented structure for application logic
+- Consistent CRUD-oriented organization across backend and frontend
+- Strong typing and static analysis by default
+- Strict quality gates with Rector, Pint, ESLint, and TypeScript checks
+- Fail-fast mindset through tests, type checks, and linting
+- Better Laravel defaults via `nunomaduro/essentials`
+- AI-ready project setup with Boost and agent guidelines
 
-- **Fully Actions-Oriented Architecture**: Every operation is encapsulated in a single-action class
-- **Cruddy by Design**: Standardized CRUD operations for all controllers, actions, and Inertia & Vue pages
-- **100% Type Coverage**: Every method, property, and parameter is explicitly typed
-- **Zero Tolerance for Code Smells**: Rector, PHPStan, ESLint, and Prettier at maximum strictness catch issues before they become bugs
-- **Immutable-First Architecture**: Data structures favor immutability to prevent unexpected mutations
-- **Fail-Fast Philosophy**: Errors are caught at compile-time, not runtime
-- **Automated Code Quality**: Pre-configured tools ensure consistent, pristine code across your entire team
-- **Bun-Powered**: Leveraging Bun for blazing-fast dependency management...
-- **Just Better Laravel Defaults**: Thanks to **[Essentials](https://github.com/nunomaduro/essentials)** / strict models, auto eager loading, immutable dates, and more...
-- **AI Guidelines**: Integrated AI Guidelines to assist in maintaining code quality and consistency
-- **Full Testing Suite**: More than 150 tests with 100% code coverage using Pest
--
-This isn't just another Laravel boilerplate—it's a statement that PHP applications can and should be built with the same rigor as strongly-typed languages like Rust or TypeScript.
+## Tech Stack
+
+- PHP 8.4+
+- Laravel 12
+- Inertia.js v2 + Vue 3 + TypeScript
+- Pest (unit, feature, and browser testing)
+- PHPStan (level 8)
+- Rector
+- Laravel Pint
+- ESLint + Prettier
+- Laravel Boost MCP
+- NunoMaduro Essentials
 
 ## Getting Started
 
-> **Requires [PHP 8.4+](https://php.net/releases/), [Bun](https://bun.sh) and a code coverage driver like [xdebug](https://xdebug.org/docs/install)**.
+Requirements:
 
-Create your type-safe Laravel application using [Composer](https://getcomposer.org):
+- PHP 8.4+
+- Node.js 22+
+- Composer
+- A database supported by Laravel
+- A PHP coverage driver (e.g. Xdebug) if you run the full coverage suite
+
+Create a new project with Composer:
 
 ```bash
-composer create-project nunomaduro/laravel-starter-kit-inertia-vue --prefer-dist example-app
+composer create-project simaocurado/starter-kit-vue --prefer-dist my-app
 ```
 
-### Initial Setup
-
-Navigate to your project and complete the setup:
+## Initial Setup
 
 ```bash
-cd example-app
-
-# Setup the project
+cd my-app
 composer setup
-
-# Start the development server
 composer dev
 ```
 
-### Optional: Browser Testing Setup
-
-If you plan to use Pest's browser testing capabilities:
+## Optional Browser Testing Setup
 
 ```bash
-bun add playwright
-bunx playwright install
+npm install playwright
+npx playwright install
 ```
 
-### Verify Installation
+## Quality and Testing
 
-Run the test suite to ensure everything is configured correctly:
+This starter kit is configured with strict defaults:
 
-```bash
-composer test
-```
+- `composer lint` runs Rector, Pint, and frontend linting
+- `composer test:type-coverage` enforces 100% type coverage
+- `composer test:unit` enforces 100% test coverage
+- `composer test:types` runs PHPStan + frontend type checks
+- `composer test` runs the full suite
 
-You should see 100% test coverage and all quality checks passing.
+## Available Commands
 
-## Available Tooling
+Development:
 
-### Development
-- `composer dev` - Starts Laravel server, queue worker, log monitoring, and Vite dev server concurrently
+- `composer dev`
+- `composer setup`
 
-### Code Quality
-- `composer lint` - Runs Rector (refactoring), Pint (PHP formatting), and Prettier (JS/TS formatting)
-- `composer test:lint` - Dry-run mode for CI/CD pipelines
+Code quality:
 
-### Testing
-- `composer test:type-coverage` - Ensures 100% type coverage with Pest
-- `composer test:types` - Runs PHPStan at level 9 (maximum strictness)
-- `composer test:unit` - Runs Pest tests with 100% code coverage requirement
-- `composer test` - Runs the complete test suite (type coverage, unit tests, linting, static analysis)
+- `composer lint`
+- `composer test:lint`
 
-### Maintenance
-- `composer update:requirements` - Updates all PHP and NPM dependencies to latest versions
+Testing:
+
+- `composer test:type-coverage`
+- `composer test:unit`
+- `composer test:types`
+- `composer test`
+
+Maintenance:
+
+- `composer update:requirements`
+
+## AI Agent Support
+
+This starter kit supports multiple AI environments without forcing local installation:
+
+- Codex guidelines: `AGENTS.md`
+- Claude guidelines: `CLAUDE.md`
+- Project MCP server config: `.mcp.json`
+- Boost target environments: `boost.json`
 
 ## License
 
-**Laravel Starter Kit Inertia Vue** was created by **[Nuno Maduro](https://x.com/enunomaduro)** under the **[MIT license](https://opensource.org/licenses/MIT)**.
+MIT
+# starter-kit-vue
+# starter-kit-vue

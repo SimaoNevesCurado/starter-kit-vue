@@ -1,6 +1,6 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "nunomaduro/laravel-starter-kit-inertia-vue",
+    "name": "simaocurado/starter-kit-vue",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
     "keywords": [
@@ -51,12 +51,12 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate",
             "@php artisan migrate --force",
-            "bun install",
-            "bun run build"
+            "npm install",
+            "npm run build"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
-            "bunx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"bun run dev\" --names=server,queue,logs,vite --kill-others"
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite --kill-others"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
@@ -64,9 +64,7 @@
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
-            "@php artisan clear",
-            "@update:requirements",
-            "@php artisan boost:update --ansi || true"
+            "@php artisan clear"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
@@ -74,27 +72,27 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
-            "@php artisan migrate --graceful --ansi || true"
+            "@php artisan migrate --graceful --ansi"
         ],
         "update:requirements": [
             "composer bump",
-            "bunx npm-check-updates -u"
+            "npx npm-check-updates -u"
         ],
         "lint": [
             "rector",
             "pint --parallel",
-            "bun run lint"
+            "npm run lint"
         ],
         "test:type-coverage": "pest --type-coverage --min=100",
         "test:lint": [
             "pint --parallel --test",
             "rector --dry-run",
-            "bun run test:lint"
+            "npm run test:lint"
         ],
-        "test:unit": "XDEBUG_MODE=\"coverage\" pest --parallel --coverage --exactly=100.0",
+        "test:unit": "pest --parallel --coverage --exactly=100.0",
         "test:types": [
             "phpstan",
-            "bun run test:types"
+            "npm run test:types"
         ],
         "test": [
             "@test:type-coverage",
