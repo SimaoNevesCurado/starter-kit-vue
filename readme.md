@@ -82,4 +82,4 @@ This starter applies strict defaults:
 ## Notes
 
 - If `bun run build` fails with a Vite/`crypto.hash` error, upgrade Node to `20.19+` or `22.12+`.
-- Set `APP_URL` in `.env` to your local domain (`http://your-project.test`) for correct URLs/redirects.
+- `APP_URL` is automatically set to `http://<project-name>.test` during setup. Adjust it manually only if you use a different local domain.
