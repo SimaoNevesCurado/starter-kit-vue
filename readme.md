@@ -14,7 +14,7 @@ An opinionated starter kit for building Laravel + Vue apps with a strong focus o
 ## Create Project
 
 ```bash
-composer create-project simaocurado/starter-kit-vue --prefer-dist app-name
+composer create-project simaocurado/starter-kit-vue --prefer-dist my-app
 cd my-app
 composer setup
 ```
