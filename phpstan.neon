@@ -1,7 +1,7 @@
 includes:
     - vendor/larastan/larastan/extension.neon
     - vendor/nesbot/carbon/extension.neon
-    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - phar://phpstan.phar/conf/bleedingEdge.neon
 
 parameters:
 
@@ -13,7 +13,7 @@ parameters:
         - public
         - routes
 
-    # For me level 7 for Wev Development, then 10 for Package Development, but you can choose the level that suits you best.
+
     level: 7
 
     tmpDir: /tmp/phpstan

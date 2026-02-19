@@ -2,14 +2,12 @@
     "agents": [
         "claude_code",
         "cursor",
-        "phpstorm",
-        "codex"
+        "phpstorm"
     ],
     "editors": [
         "claude_code",
         "cursor",
-        "phpstorm",
-        "codex"
+        "phpstorm"
     ],
     "guidelines": []
 }

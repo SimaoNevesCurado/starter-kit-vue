@@ -7,13 +7,14 @@ namespace App\Models;
 use Carbon\CarbonInterface;
 use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 
 /**
- * @property-read int $id
+ * @property-read string $id
  * @property-read string $name
  * @property-read string $email
  * @property-read CarbonInterface|null $email_verified_at
@@ -27,10 +28,12 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
  */
 final class User extends Authenticatable implements MustVerifyEmail
 {
-    /**
-     * @use HasFactory<UserFactory>
-     */
-    use HasFactory, Notifiable, TwoFactorAuthenticatable;
+    /** @use HasFactory<UserFactory> */
+    use HasFactory;
+
+    use HasUuids;
+    use Notifiable;
+    use TwoFactorAuthenticatable;
 
     /**
      * @var list<string>
@@ -48,7 +51,7 @@ final class User extends Authenticatable implements MustVerifyEmail
     public function casts(): array
     {
         return [
-            'id' => 'integer',
+            'id' => 'string',
             'name' => 'string',
             'email' => 'string',
             'email_verified_at' => 'datetime',

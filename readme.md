@@ -1,110 +1,85 @@
-# Simao Curado Laravel Starter Kit (Inertia + Vue)
 
-[![CI](https://github.com/simaonevescurado/starter-kit-vue/actions/workflows/tests.yml/badge.svg)](https://github.com/simaonevescurado/starter-kit-vue/actions/workflows/tests.yml)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/simaocurado/starter-kit-vue.svg)](https://packagist.org/packages/simaocurado/starter-kit-vue)
-[![Total Downloads](https://img.shields.io/packagist/dt/simaocurado/starter-kit-vue.svg)](https://packagist.org/packages/simaocurado/starter-kit-vue)
-[![License](https://img.shields.io/packagist/l/simaocurado/starter-kit-vue.svg)](https://packagist.org/packages/simaocurado/starter-kit-vue)
+# Starter Kit Vue (Laravel + Inertia)
 
-An opinionated Laravel 12 starter kit for developers who want strict, consistent, and production-focused defaults out of the box.
+An opinionated starter kit for building Laravel + Vue apps with a strong focus on quality, typing, and consistency.
 
-This project is based on Laravel + Inertia + Vue and adds a quality-first workflow with static analysis, automated refactoring, formatting, and strong testing requirements.
+## Requirements
 
-## Why This Starter Kit
-
-- Actions-oriented structure for application logic
-- Consistent CRUD-oriented organization across backend and frontend
-- Strong typing and static analysis by default
-- Strict quality gates with Rector, Pint, ESLint, and TypeScript checks
-- Fail-fast mindset through tests, type checks, and linting
-- Better Laravel defaults via `nunomaduro/essentials`
-- AI-ready project setup with Boost and agent guidelines
-
-## Tech Stack
-
-- PHP 8.4+
-- Laravel 12
-- Inertia.js v2 + Vue 3 + TypeScript
-- Pest (unit, feature, and browser testing)
-- PHPStan (level 8)
-- Rector
-- Laravel Pint
-- ESLint + Prettier
-- Laravel Boost MCP
-- NunoMaduro Essentials
-
-## Getting Started
-
-Requirements:
-
-- PHP 8.4+
-- Bun
+- PHP `8.5+`
+- Node.js `20.19+` or `22.12+` (required by Vite 7)
+- Bun `1.3+`
 - Composer
-- A database supported by Laravel
-- A PHP coverage driver (e.g. Xdebug) if you run the full coverage suite
+- SQLite (or another database configured in `.env`)
 
-Create a new project with Composer:
-
-```bash
-composer create-project simaocurado/starter-kit-vue --prefer-dist my-app
-```
-
-## Initial Setup
+## Create Project
 
 ```bash
+composer create-project simaocurado/starter-kit-vue my-app
 cd my-app
 composer setup
+```
+
+`composer setup` runs:
+- PHP dependency installation
+- `.env` creation/configuration
+- automatic `APP_URL` setup to `http://<project-name>.test`
+- `php artisan key:generate`
+- migrations
+- `bun install`
+- `bun run build`
+
+## Development
+
+### With Herd (recommended on macOS)
+
+With Herd, the HTTP server already exists (`*.test`). You only need to run the frontend:
+
+```bash
+bun run dev
+```
+
+Open the app at `http://<project-name>.test`.
+
+Optional (if you use queues):
+
+```bash
+php artisan queue:listen --tries=1
+```
+
+### Without Herd
+
+Run:
+
+```bash
 composer dev
 ```
 
-## Optional Browser Testing Setup
+This starts Laravel server, queue worker, logs, and Vite together.
 
-```bash
-bun add playwright
-bunx playwright install
-```
+## Strictness
 
-## Quality and Testing
+This starter applies strict defaults:
 
-This starter kit is configured with strict defaults:
+- TypeScript with `"strict": true` in `tsconfig.json`
+- PHPStan level `7` + `bleedingEdge` in `phpstan.neon`
+- Pest type coverage minimum of `90%` (`composer test:type-coverage`)
+- Pest test coverage requirement of `90%` in `composer test:unit`
+- Pint + Rector for formatting and automated refactors
+- Oxlint + Prettier for frontend quality checks
 
-- `composer lint` runs Rector, Pint, and frontend linting
-- `composer test:type-coverage` enforces 100% type coverage
-- `composer test:unit` enforces 100% test coverage
-- `composer test:types` runs PHPStan + frontend type checks
-- `composer test` runs the full suite
+## Scripts
 
-## Available Commands
-
-Development:
-
-- `composer dev`
 - `composer setup`
-
-Code quality:
-
+- `composer dev`
 - `composer lint`
-- `composer test:lint`
-
-Testing:
-
+- `composer test`
 - `composer test:type-coverage`
 - `composer test:unit`
 - `composer test:types`
-- `composer test`
-
-Maintenance:
-
+- `composer test:lint`
 - `composer update:requirements`
 
-## AI Agent Support
+## Notes
 
-This starter kit supports multiple AI environments without forcing local installation:
-
-- Codex guidelines: `AGENTS.md`
-- Claude guidelines: `CLAUDE.md`
-- Project MCP server config: `.mcp.json`
-- Boost target environments: `boost.json`
-
-## License
-
-MIT
+- If `bun run build` fails with a Vite/`crypto.hash` error, upgrade Node to `20.19+` or `22.12+`.
+- Set `APP_URL` in `.env` to your local domain (`http://your-project.test`) for correct URLs/redirects.
