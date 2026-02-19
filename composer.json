@@ -23,6 +23,7 @@
         "laravel/boost": "^1.8.10",
         "laravel/pail": "^1.2.6",
         "laravel/pint": "^1.27.1",
+        "laravel/tinker": "^2.10.1",
         "mockery/mockery": "^1.6.12",
         "nunomaduro/collision": "^8.9.1",
         "pestphp/pest": "^4.4.1",
@@ -46,7 +47,7 @@
     },
     "scripts": {
         "configure:app-url": [
-            "@php -r \"if (! file_exists('.env')) { exit(0); } $environment = file_get_contents('.env'); $directoryName = basename(getcwd()); $slug = strtolower((string) preg_replace('/[^A-Za-z0-9]+/', '-', $directoryName)); $slug = trim($slug, '-'); if ($slug === '') { exit(0); } $appUrl = 'http://' . $slug . '.test'; $updatedEnvironment = preg_replace('/^APP_URL=.*/m', 'APP_URL=' . $appUrl, $environment, 1, $replacements); if ($replacements === 0) { $updatedEnvironment .= PHP_EOL . 'APP_URL=' . $appUrl . PHP_EOL; } file_put_contents('.env', $updatedEnvironment);\""
+            "@php -r \"if (! file_exists('.env')) { exit(0); } \\$environment = file_get_contents('.env'); \\$directoryName = basename(getcwd()); \\$slug = strtolower((string) preg_replace('/[^A-Za-z0-9]+/', '-', \\$directoryName)); \\$slug = trim(\\$slug, '-'); if (\\$slug === '') { exit(0); } \\$appUrl = 'http://' . \\$slug . '.test'; \\$updatedEnvironment = preg_replace('/^APP_URL=.*/m', 'APP_URL=' . \\$appUrl, \\$environment, 1, \\$replacements); if (\\$replacements === 0) { \\$updatedEnvironment .= PHP_EOL . 'APP_URL=' . \\$appUrl . PHP_EOL; } file_put_contents('.env', \\$updatedEnvironment);\""
         ],
         "setup": [
             "composer install",
