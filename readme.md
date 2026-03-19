@@ -2,6 +2,7 @@
 # Starter Kit Vue (Laravel + Inertia)
 
 An opinionated starter kit for building Laravel + Vue apps with a strong focus on quality, typing, and consistency.
+It currently targets Laravel 13 on the backend and keeps the existing Vue frontend dependency set unchanged.
 
 ## Requirements
 

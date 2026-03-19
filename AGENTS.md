@@ -50,10 +50,10 @@ The Laravel Boost guidelines are specifically curated by Laravel maintainers for
 ## Foundational Context
 This application is a Laravel application and its main Laravel ecosystems package & versions are below. You are an expert with them all. Ensure you abide by these specific packages & versions.
 
-- php - 8.4.16
-- inertiajs/inertia-laravel (INERTIA) - v2
+- php - 8.5.0
+- inertiajs/inertia-laravel (INERTIA) - v3
 - laravel/fortify (FORTIFY) - v1
-- laravel/framework (LARAVEL) - v12
+- laravel/framework (LARAVEL) - v13
 - laravel/prompts (PROMPTS) - v0
 - laravel/wayfinder (WAYFINDER) - v0
 - larastan/larastan (LARASTAN) - v3
@@ -62,7 +62,7 @@ This application is a Laravel application and its main Laravel ecosystems packag
 - pestphp/pest (PEST) - v4
 - phpunit/phpunit (PHPUNIT) - v12
 - rector/rector (RECTOR) - v2
-- @inertiajs/vue3 (INERTIA) - v2
+- @inertiajs/vue3 (INERTIA) - v3
 - tailwindcss (TAILWINDCSS) - v4
 - vue (VUE) - v3
 - @laravel/vite-plugin-wayfinder (WAYFINDER) - v0
@@ -187,13 +187,13 @@ Route::get('/users', function () {
 });
 </code-snippet>
 
-=== inertia-laravel/v2 rules ===
+=== inertia-laravel/v3 rules ===
 
-## Inertia v2
+## Inertia v3
 
-- Make use of all Inertia features from v1 and v2. Check the documentation before making any changes to ensure we are taking the correct approach.
+- Make use of current Inertia features from v1, v2, and v3. Check the documentation before making any changes to ensure we are taking the correct approach.
 
-### Inertia v2 New Features
+### Common Inertia Features
 - Deferred props.
 - Infinite scrolling using merging props and `WhenVisible`.
 - Lazy loading data on scroll.
@@ -253,15 +253,15 @@ Route::get('/users', function () {
 ### Vite Error
 - If you receive an "Illuminate\Foundation\ViteException: Unable to locate file in Vite manifest" error, you can run `bun run build` or ask the user to run `bun run dev` or `composer run dev`.
 
-=== laravel/v12 rules ===
+=== laravel/v13 rules ===
 
-## Laravel 12
+## Laravel 13
 
 - Use the `search-docs` tool to get version-specific documentation.
-- Since Laravel 11, Laravel has a new streamlined file structure which this project uses.
+- Laravel 13 continues the streamlined file structure introduced in Laravel 11, which this project uses.
 
-### Laravel 12 Structure
-- In Laravel 12, middleware are no longer registered in `app/Http/Kernel.php`.
+### Laravel 13 Structure
+- In Laravel 13, middleware are no longer registered in `app/Http/Kernel.php`.
 - Middleware are configured declaratively in `bootstrap/app.php` using `Application::configure()->withMiddleware()`.
 - `bootstrap/app.php` is the file to register middleware, exceptions, and routing files.
 - `bootstrap/providers.php` contains application specific service providers.
@@ -270,7 +270,7 @@ Route::get('/users', function () {
 
 ### Database
 - When modifying a column, the migration must include all of the attributes that were previously defined on the column. Otherwise, they will be dropped and lost.
-- Laravel 12 allows limiting eagerly loaded records natively, without external packages: `$query->latest()->limit(10);`.
+- Laravel 13 continues to allow limiting eagerly loaded records natively, without external packages: `$query->latest()->limit(10);`.
 
 ### Models
 - Casts can and likely should be set in a `casts()` method on a model rather than the `$casts` property. Follow existing conventions from other models.
@@ -444,9 +444,9 @@ $pages->assertNoJavascriptErrors()->assertNoConsoleLogs();
 
 </code-snippet>
 
-=== inertia-vue/v2/forms rules ===
+=== inertia-vue/v3/forms rules ===
 
-## Inertia v2 + Vue Forms
+## Inertia v3 + Vue Forms
 
 <code-snippet name="`<Form>` Component Example" lang="vue">
 
