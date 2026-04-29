@@ -11,7 +11,7 @@ final readonly class UpdateUser
     /**
      * @param  array<string, mixed>  $attributes
      */
-    public function handle(User $user, array $attributes): void
+    public function __invoke(User $user, array $attributes): void
     {
         $emailChanged = isset($attributes['email']) && $user->email !== $attributes['email'];
 

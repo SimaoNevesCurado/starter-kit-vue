@@ -27,7 +27,7 @@ final readonly class UserController
         /** @var array<string, mixed> $attributes */
         $attributes = $request->safe()->except('password');
 
-        $user = $action->handle(
+        $user = $action(
             $attributes,
             $request->string('password')->value(),
         );
@@ -43,7 +43,7 @@ final readonly class UserController
     {
         Auth::logout();
 
-        $action->handle($user);
+        $action($user);
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();

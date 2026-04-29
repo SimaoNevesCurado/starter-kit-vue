@@ -10,7 +10,7 @@ it('may delete a user', function (): void {
 
     $action = resolve(DeleteUser::class);
 
-    $action->handle($user);
+    $action($user);
 
     expect($user->exists)->toBeFalse();
 });
