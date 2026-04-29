@@ -24,7 +24,7 @@ final readonly class UserProfileController
 
     public function update(UpdateUserRequest $request, #[CurrentUser] User $user, UpdateUser $action): RedirectResponse
     {
-        $action->handle($user, $request->validated());
+        $action($user, $request->validated());
 
         return to_route('user-profile.edit');
     }

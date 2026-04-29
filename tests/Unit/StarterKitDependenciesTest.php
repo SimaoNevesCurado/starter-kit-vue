@@ -11,12 +11,14 @@ it('targets current Laravel 13 compatible backend packages for new installs', fu
         'laravel/fortify' => '^1.36.1',
         'laravel/framework' => '^13.0',
         'laravel/wayfinder' => '^0.1.14',
+        'nunomaduro/essentials' => '^1.2.0',
     ])
         ->and($composer['require-dev'])->toMatchArray([
             'driftingly/rector-laravel' => '^2.1.12',
             'larastan/larastan' => '^3.9.3',
             'laravel/boost' => '^2.3.4',
             'laravel/pint' => '^1.29.0',
+            'laravel/tinker' => '^3.0.0',
             'pestphp/pest' => '^4.4.2',
             'pestphp/pest-plugin-laravel' => '^4.1.0',
         ])
